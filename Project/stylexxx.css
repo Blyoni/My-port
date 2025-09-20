@@ -1,0 +1,1502 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* TOP BAR SECTION   */
+.top_bar {
+    display: flex;
+    background-color: #EFEFEF;
+    width: 100%;
+    height: 9vh;
+    justify-content: space-between;
+}
+
+.fx_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    margin-left: 1rem;
+    padding: 0.5rem;  
+}
+
+.live_fx {
+    font-size: 1.3rem;
+}
+
+.fx_color {
+    color: green;
+}
+
+.time {
+    grid-column: 2;
+    font-size: 0.9rem;
+    text-align: right;
+    color: gray;
+}
+
+.search-login {
+    display: flex;
+    /* grid-template-columns: repeat(3, 1fr); */
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    margin-right: 4rem;
+    padding: 0.5rem 0rem;
+    font-size: 2.5rem;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Keeps icon on right */
+    position: relative;
+    width: auto;
+}
+  
+.search-bar {
+    width: 0; /* Sets the search bar to hidden by default */
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #0c203b;
+    transition: all 0.5s ease;
+    opacity: 0; /* Start invisible */
+    position: absolute;
+}
+  
+.fa-searchengin {
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.5s ease;
+}
+  
+/* Hover effects */
+.search-container:hover .search-bar {
+    color: white;
+    width: 200px; /* Visible width */
+    height: 3rem;
+    padding: 8px;
+    opacity: 1; /* Fade in */
+}
+  
+.search-container:hover .fa-searchengin {
+    color: white;
+    transform: translateX(5px); /* for slight icon movement */
+}
+
+.vertical_line {
+    border: 2px solid rgb(219, 215, 215);
+    height: 2rem;
+    
+}
+
+.login_button {
+    font-size: 1.3rem;
+    align-items: center;
+    color: rgb(78, 78, 78);
+    display: inline-block; /* Required for pseudo-element sizing */
+    position: relative;
+}
+
+.login_button:hover {
+    cursor: pointer;
+}
+  
+/* Animated underline */
+.login_button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px; /* Position under text */
+    width: 0; /* Start with 0 width */
+    height: 4px; /* Underline thickness */
+    background: rgb(218, 161, 5);
+    transition: width 0.3s ease; /* Animation speed */
+}
+  
+.login_button:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+}
+
+/* HEADER SECTION */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32rem;
+    padding: 10px 40px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+  
+  
+.logo img {
+    height: 8rem;
+}
+  
+.navbar {
+    flex-grow: 1;
+    font-size: 1.3rem;
+    margin-right: 30px;
+    
+}
+  
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    
+}
+  
+.nav-item {
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+  
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+    transition: color 0.3s;
+}
+  
+.nav-item a:hover {
+    cursor: pointer;
+    color: #f57c00;
+}
+
+  /* Animated underline */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px; /* Position under text */
+    width: 0; /* Start with 0 width */
+    height: 4px; /* Underline thickness */
+    background: rgb(218, 161, 5);
+    transition: width 0.3s ease; /* Animation speed */
+}
+  
+.nav-item:hover::after {
+    width: 100%; /* Expand to full width */
+}
+  
+.dropdown-menu {
+    min-width: 200px;
+    position: absolute;
+    list-style: none;
+    top: 130%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+}
+  
+.dropdown-menu li a {
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+  
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+  
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+    color: #f57c00;
+}
+
+  /* Services Sub menu dropdown styling  */
+
+.sub-menu {
+    min-width: 200px;
+    position: absolute;
+    list-style: none;
+    top: 130%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+}
+    
+.sub-menu li a {
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+.services:hover .sub-menu {
+    display: flex;
+}
+
+.sub-menu {
+    min-width: 200px;
+    position: absolute;
+    list-style: none;
+    top: 0%;
+    left: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+}
+
+  /* Intro Section styling */
+
+.slider {
+    position: relative;
+    width: 100vw;
+    height: 750px;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    animation: slideLoop 25s infinite;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.moving-image {
+    position: absolute;
+    width: 100%;
+    height: 750px;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.moving-text {
+    position: absolute;
+    top: 0;
+    right: 6%;
+    height: 750px;
+    width: 30%;
+    padding: 50px;
+    background: rgba(0, 14, 36, 0.75);
+    color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+.moving-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+  
+.moving-text p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+
+@keyframes slideLoop {
+    0%, 10% { transform: translateX(0); }
+    20%, 30% { transform: translateX(-100%); }
+    40%, 50% { transform: translateX(-200%); }
+    60%, 70% { transform: translateX(-300%); }
+    80%, 90% { transform: translateX(-400%); }
+    100% { transform: translateX(0); }
+}
+
+
+/* Animate each moving box separately using nth-child with delay */
+.slide:nth-child(1) .moving-text {
+    animation: textSlide 5s infinite;
+    animation-delay: 1s;
+}
+  
+.slide:nth-child(2) .moving-text {
+    animation: textSlide 5s infinite;
+    animation-delay: 5s;
+}
+  
+.slide:nth-child(3) .moving-text {
+    animation: textSlide 5s infinite;
+    animation-delay: 10s;
+}
+  
+.slide:nth-child(4) .moving-text {
+    animation: textSlide 5s infinite;
+    animation-delay: 15s;
+}
+  
+.slide:nth-child(5) .moving-text {
+    animation: textSlide 5s infinite;
+    animation-delay: 20s;
+}
+
+@keyframes textSlide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-40px); }
+}
+
+/* About HBK Engineering, slide btn About Quanta Services  */
+
+.HBK-Quantas {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+}
+
+.hbk-eng, .Quanta-serv {
+    color: white;
+    background-color: #0C203B;
+    padding: 20px 60px;
+    font-size: 30px;
+}
+
+.slides-btn {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 65px;
+    height: 8px;
+    border: none;
+    background-color: #cec5c5;
+}
+
+/* Our work-Impact section */
+
+.work-impact {
+    display: flex;
+    background-color: #ddd;
+    margin-top: -35px;
+    width: 100%;
+}
+
+.main-image-container {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    padding-top: 80px;
+    padding-left: 1rem;
+    padding-bottom: 50px;
+    gap: 2px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+  
+.image-container img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;  
+}
+  
+  /* Centered white title always visible */
+.centered-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 2;
+}
+  
+  /* Overlay with full text (only visible on hover) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 35px;
+    margin-left: 90px;
+    height: 80%;
+    width: 80%;
+    border: 5px solid white;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    text-align: center;
+    z-index: 3;
+}
+  
+  /* Make overlay visible on hover */
+.image-container:hover .overlay {
+    opacity: 1;
+}
+  
+  /* Inside overlay */
+.overlay h2 {
+    color: #ffc107;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+  
+.overlay p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    max-width: 80%;
+}
+  
+.read-more-btn {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* The quanta eletric power, underground power section */
+
+.quanta-tabs {
+    padding-top: 80px;
+    padding-left: 2rem;
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+    display: none;
+}
+  
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    margin-bottom: 1rem;
+}
+
+.tab-label {
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+ /* Tab Content */
+ .tab-content {
+    position: relative;
+  }
+  
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* SWITCHING BETWEEN TABS */
+#tab1:checked ~ .tab-content .tab-panel:nth-of-type(1),
+#tab2:checked ~ .tab-content .tab-panel:nth-of-type(2),
+#tab3:checked ~ .tab-content .tab-panel:nth-of-type(3) {
+  display: block;
+}
+
+/* HIGHLIGHTING ACTIVE TAB */
+#tab1:checked ~ .tab-nav label[for="tab1"]::after,
+#tab2:checked ~ .tab-nav label[for="tab2"]::after,
+#tab3:checked ~ .tab-nav label[for="tab3"]::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: orange;
+}
+
+.tab-panel {
+    max-width: 57rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+  
+.video-wrapper {
+    background-color: black;
+    margin-bottom: 2rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+  
+.text-content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+   
+.text-content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.explore-btn {
+    background-color: #4a8194; 
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 4px solid white;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+  
+.explore-btn:hover {
+    background-color: #0C203B;
+}
+
+.service-search-btn{
+    display: none;
+}
+
+/* Our Services Section */
+
+.services-section {
+    padding-left: 1rem;
+}
+
+.services-section h3 {
+    font-size: 3rem;
+}
+.service-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.service-image {
+    position: relative;
+    width: 26rem;
+    height: 26rem;
+    overflow: hidden;
+}
+  
+.service-image img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;  
+}
+  
+  /* Bottom white title always visible */
+.base-title {
+    position: absolute;
+    top: 80%;
+    background-color: #b7b600cc;
+    padding: 0.6rem;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: 2;
+    
+}
+  
+  /* Overlay with full text (only visible on hover) */
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    text-align: center;
+    z-index: 3;
+}
+  
+  /* Make overlay visible on hover */
+.service-image:hover .service-overlay {
+    opacity: 1;
+}
+
+/* Make base title disappear on hover */
+.service-image:hover .base-title {
+    display: none;
+}
+  
+.service-overlay h3 {
+    color: #ffc107;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+  
+.service-overlay p {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    
+}
+
+/* Fancy section */
+  
+.fancy-section {
+    height: 100vh;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.fancy-section h2 {
+    font-size:2.5rem ;
+    text-align: center;
+    color: black;
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
+    font-weight: 400;
+}
+  
+  /* The transparent content box revealing the background image */
+.content-box {
+    width: 100%;
+    height: 70%;
+    padding-left: 3rem;
+    padding-top: 7rem;
+    color: white;
+    font-size: 1.3rem;
+    background-image: url('./images/Career\ Image\ for\ Landing\ Page\ Resized\ \(1\).jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4); 
+    background-blend-mode: darken;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.content-box h3 {
+    color: #b7b600cc;
+    margin-bottom: 1.2rem;
+    font-size: 2rem;
+}
+
+.content-box p {
+    max-width: 55rem;
+    font-weight: 250;
+}
+
+.student-intern-section{
+    margin-top: -7rem;
+    margin-bottom: 3rem;
+}
+
+.student-intern-section h2 {
+    font-size:2.5rem ;
+    text-align: center;
+    color: black;
+    margin-bottom: 2.5rem;
+    
+    font-weight: 400;
+}
+
+.career-vertical-line {
+    width: 1.5px;
+    height: 15rem;
+    background-color: #09742c;
+    border: none;
+    
+}
+
+.join-student {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-left: 9rem;
+    margin-right: 9rem;
+}
+
+.join-student p {
+    max-width: 30rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.join-student h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size:1.7rem ;
+}
+
+.search-career {
+    display: flex;
+    justify-content: center;
+}
+
+/* News section styling */
+
+.news-section {
+    margin-top: 0;
+    background-color: #4a8194;
+    padding-bottom: 3rem;
+}
+
+.news-section h3 {
+    font-size: 3rem;
+    font-weight: 350;
+    color: white;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    padding: 1.5rem;
+}
+
+.news-item {
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.item-image {
+    width: 100%;
+}
+
+.news-item h4 {
+    color: #4a8194;
+    margin: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.news-item p {
+    margin-left: 1.5rem;
+    margin-bottom: 3rem;
+    margin-top: -1rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
+
+/* styling a-division-of-quanta */
+
+.a-division-of-quanta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1; 
+    overflow: hidden; 
+    height: 35rem;
+}
+
+.a-division-of-quanta::before {
+    content: "";
+    position: absolute;
+    inset: 0; 
+    background-image: url(./images/topo-black.svg);
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-blend-mode: difference;
+    opacity: 0.1; 
+    z-index: -1; 
+}
+
+.a-division-of-quanta h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.qant-logo img {
+    width: 20rem;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+}
+
+.a-division-of-quanta h2{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.a-division-of-quanta p {
+    text-align: center;
+    font-size: 1.3rem;
+    max-width: 90rem;
+    line-height: 2rem;
+}
+
+
+/* Footer styling */
+
+.first-footer-section {
+    background-color: #0C203B;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 15rem;
+    padding-top: 1.5rem;
+    color: white;
+}
+
+.contact-info h3 {
+    font-size: 2.2rem;
+}
+
+.contact p {
+    font-size: 1.3rem;
+    max-width: 16rem;
+    line-height: 2.2rem;
+}
+
+.location-menu, .quick-links-menu {
+    list-style: none;
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+    cursor: pointer;
+}
+
+.contact-list:hover {
+    text-decoration: underline;
+}
+
+/* Work stat area */
+
+.work-stat {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem;
+    padding-bottom: 2rem;
+}
+
+.work-stat-image-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.work-stat-1, 
+.work-stat-2, 
+.work-stat-3, 
+.work-stat-4, 
+.work-stat-5 {
+    color: white;
+    border-radius: 10px;
+    width: 22rem;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: red;
+    padding: 0.8rem;
+}
+
+.work-stat-4 img {
+    width: 6rem;
+}
+
+.work-stat-1, .work-stat-5 {
+    background-color: #be4545;
+}
+
+.work-stat-2, .work-stat-3 {
+    background-color: #4b8b41;
+}
+
+.work-stat-4 {
+    background-color: #ca7722;
+}
+
+.second-footer-section {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0f1d30;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: -2rem;
+}
+
+.footer-logo-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: #4a8194;
+    border-radius: 50%;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.footer-logo-img {
+    transition: transform 0.5s ease-in-out;
+}
+
+.footer-logo-img:hover{
+    transform: rotate(360deg);
+}
+
+.footer-logo img {
+    width: 1.7rem;
+}
+
+.footer-copyright {
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* RESPONSIVENESS DESIGN */
+
+/* Phone */
+@media (max-width: 768px) {
+/* Top bar styling */
+.fx_section {
+    display: none;
+}
+.time {
+    display: none;
+}
+
+/* Nav-bar styling */
+.navbar {
+    display: none;
+}
+
+.navbar.active {
+    display: flex;
+}
+
+.hamburger {
+    display: flex;
+    margin: 1rem;
+    font-size: 2rem;
+}
+/* HEADER SECTION */
+
+header {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    order: 2;
+    align-self: flex-start;
+    margin-left: 1rem;
+}
+  
+.navbar {
+    flex-grow: 1;
+    font-size: 1.3rem;
+    margin-right: 0px;
+    margin-left: 2rem;
+    order: 1;  
+}
+  
+.nav-menu {
+    display: block;
+    background-color: white;
+    width: 100vw;
+    list-style: none;   
+}
+  
+.nav-item {
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+  
+.nav-item a {
+    text-decoration: none;
+    color: #0C203B;
+    display: inline-block;
+    transition: color 0.3s;
+}
+  
+.dropdown-menu {
+    min-width: 200px;
+    list-style: none;
+    top: 130%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+}
+  
+.dropdown-menu li a {
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+    /* Intro Section styling */
+.slider {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 100vw;
+    animation: slideLoop 25s infinite;
+}
+
+.slide {
+    position: relative;
+    width: 100vw;
+    flex-shrink: 0;
+}
+
+.moving-image {
+    position: absolute;
+    width: 100vw;
+    height: 20em;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.moving-text {
+    width: 100%;
+    height: 15em;
+    padding: auto;
+    margin-top: 70%;
+    background: rgba(0, 14, 36, 1);
+    color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: none !important;
+}
+  
+.moving-text h1 {
+    font-size: 1.5em;
+}
+  
+.moving-text p {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+
+@keyframes slideLoop {
+    0%, 10% { transform: translateX(0); }
+    20%, 30% { transform: translateX(-100%); }
+    40%, 50% { transform: translateX(-200%); }
+    60%, 70% { transform: translateX(-300%); }
+    80%, 90% { transform: translateX(-400%); }
+    100% { transform: translateX(0); }
+}
+
+.hbk-eng, .Quanta-serv{
+    display: none;
+}
+.mobile-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+.service-search-btn{
+    display: block;
+    background-color: #4a8194; 
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 4px solid white;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+/* Our work-Impact section */
+
+.work-impact {
+    display: flex;
+    flex-direction: column;
+    background-color: #ddd;
+    justify-content: center;
+    width: 100%;
+}
+
+.main-image-container {
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    padding-left: 1rem;
+    gap: 1rem;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
+}
+  
+.image-container img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;  
+}
+  
+  /* Centered white title always visible */
+.centered-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    z-index: 2;
+}
+  
+  /* Overlay with full text (only visible on hover) */
+.overlay {
+    position: absolute;
+    margin: 1rem;
+    height: 90%;
+    width: 90%;
+    border: 5px solid white;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    text-align: center;
+    z-index: 3;
+}
+  
+  /* Make overlay visible on hover */
+.image-container:hover .overlay {
+    opacity: 1;
+}
+  
+  /* Inside overlay */
+.overlay h2 {
+    color: #ffc107;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+  
+.overlay p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    max-width: 95%;
+}
+  
+.read-more-btn {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* The quanta eletric power, underground power section */
+
+.quanta-tabs {
+    width: 100%;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    margin: 0;
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+    display: none;
+}
+  
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding:1rem;
+    margin-bottom: 1rem;
+}
+
+.tab-label {
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+ /* Tab Content */
+ .tab-content {
+    position: relative;
+  }
+  
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* SWITCHING BETWEEN TABS */
+#tab1:checked ~ .tab-content .tab-panel:nth-of-type(1),
+#tab2:checked ~ .tab-content .tab-panel:nth-of-type(2),
+#tab3:checked ~ .tab-content .tab-panel:nth-of-type(3) {
+  display: block;
+}
+
+/* HIGHLIGHTING ACTIVE TAB */
+#tab1:checked ~ .tab-nav label[for="tab1"]::after,
+#tab2:checked ~ .tab-nav label[for="tab2"]::after,
+#tab3:checked ~ .tab-nav label[for="tab3"]::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: orange;
+}
+
+.tab-panel {
+    max-width: 57rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+  
+.video-wrapper {
+    background-color: black;
+    margin-bottom: 2rem !important;
+    justify-content: center;
+    width: 80vw;
+    margin: 0.5rem;
+}
+  
+.text-content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+   
+.text-content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.explore-btn {
+    background-color: #4a8194; 
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 4px solid white;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+  
+.explore-btn:hover {
+    background-color: #0C203B;
+}
+
+.services-section {
+    display: none;
+}
+
+.content-box {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+.career-vertical-line {
+    width: 90vw;
+    height: 1.5px;
+    
+}
+
+.join-student {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem !important;
+}
+
+.join-student p {
+    min-width: 10rem;
+    max-width: 90vw;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.join-student h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size:1.7rem ;
+}
+
+/* News section styling */
+
+.items {
+    grid-template-columns: 1fr;
+}
+
+
+/* styling a-division-of-quanta */
+
+.a-division-of-quanta h2{
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.a-division-of-quanta p {
+    text-align: center;
+    font-size: 1.3rem;
+    max-width: 90vw;
+    line-height: 1.5rem;
+    padding: 1rem;
+}
+
+
+/* Footer styling */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 0;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    color: white;
+}
+
+/* Work stat area */
+
+.work-stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.work-stat-1, 
+.work-stat-2, 
+.work-stat-3, 
+.work-stat-4, 
+.work-stat-5 {
+    width: 90vw;
+    height: 10rem;
+}
+
+.second-footer-section {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-logo-container {
+    justify-content: center;
+}
+
+.footer-copyright {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+
+}
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {}
+
+/* Desktop */
+@media (min-width: 1025px) {}
