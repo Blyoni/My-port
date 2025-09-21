@@ -184,7 +184,7 @@
 .profileImage {
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
   z-index: 4;
 }
 
@@ -619,4 +619,5 @@
   border: 0.4rem solid white;
 }
 }
+
 
